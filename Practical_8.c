@@ -66,3 +66,17 @@ int numberofcoins(int d[],int n,int N)
     }
     return c[n][N];         //returning bottom most and rightmost element
 }
+
+/*
+OUTPUT:
+Enter the no. of units(n):3
+Enter the values of coins:1 4 6
+Enter total units for which the changes if required(N):8
+
+Printing the table for no. of coind:
+ 0 1 2 3 4 5 6 7 8
+ 0 1 2 3 4 5 6 7 8
+ 0 1 2 3 1 2 3 4 2
+ 0 1 2 3 1 2 1 2 2
+Minimum no. of coins 2
+*/
