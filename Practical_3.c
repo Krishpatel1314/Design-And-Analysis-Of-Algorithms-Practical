@@ -3,18 +3,19 @@ Implementation and Time analysis of linear and binary search algorithm.
 */
 #include <stdio.h>
 #include <conio.h>
+#include<time.h>
 #define size 50
-int i,j,arr[size],n,temp,ch,key,flag,low=0;
+int i,j,arr[size],n,temp,ch,key,flag=0,low=0,beg,mid,end;
 void Seq_Search(int arr[],int,int);
-int binsearchrec(int arr[],int,int,int);
-int binsearchnonrec(int arr[],int);
+void bubble_sort(int arr[],int);
+void binsearch(int arr[]);
 int main()
 {
+    clock_t start, end;
     printf("\n1)Create an array");
     printf("\n2)Linear Search");
-    printf("\n3)Binary Search(Recursive)");
-    printf("\n4)Binary Search(Non-Recursive)");
-    printf("\n5)Exit");
+    printf("\n3)Binary Search");
+    printf("\n4)Exit");
     while(i>=0)
     {
         printf("\nEnter your choice:");
@@ -26,38 +27,27 @@ int main()
                 scanf("%d", &n);
                 printf("\nEnter the elements: ");
                 for(i=0;i<n;i++)
-                {
                     scanf("%d", &arr [i]);
-                }
                 break;
             case 2:
+                start = clock();
                 printf("Linear Search");
                 printf("\nEnter the element to be searched:");
                 scanf("%d",&key);
                 Seq_Search(arr,n,key);
+                end = clock();
+                double duration1 = ((double)end - start)/CLOCKS_PER_SEC;
+                printf("\nTime taken to Linear Search to execute in seconds : %f", duration1);
                 break;
             case 3:
-                printf("Binary Search by Recursive");
-                printf("\nEnter the element to be searched:");
-                scanf("%d",&key);
-                int low=0,high=n-1;
-                flag=binsearchrec(arr,key,low,high);
-                if (flag==0)
-                    printf("Element not found");
-                else
-                    printf("Element found at %d",flag+1);
+                start = clock();
+                printf("Binary Search");
+                binsearch(arr);
+                end = clock();
+                double duration3 = ((double)end - start)/CLOCKS_PER_SEC;
+                printf("\nTime taken to binary search to execute in seconds : %f", duration3);
                 break;
             case 4:
-                printf("Binary Search by Non-Recursive");
-                printf("\nEnter the element to be searched:");
-                scanf("%d",&key);
-                flag=binsearchnonrec(arr,key);
-                if (flag==-1)
-                    printf("Element not found");
-                else
-                    printf("Element found at %d",flag+1);
-                break;
-            case 5:
                 return 0;
             default:
                 printf("\nInvalid Input!!"); 
@@ -82,35 +72,67 @@ void Seq_Search(int arr[],int n,int key)
     else
         printf("Element not found!");   
 }
-int binsearchrec(int arr[],int key,int low,int high)
+void bubble_sort(int arr[], int n)
 {
-    int m;
-    m=(low+high)/2;  //mid of the array is obtained
-    if (key==arr[m])
-        return m;
-    else if (key<arr[m])
-    {    
-        binsearchrec(arr,key,low,m-1);  //search the left sub list
-        flag++;
-    }
-    else
-    {   
-        binsearchrec(arr,key,m+1,high);  //search the right sub list
-        flag++;
-    }    
-}
-int binsearchnonrec(int arr[],int key)
-{
-    int m,low=0,high=n-1;
-    while (low<=high)
+    int i, j, temp;
+    
+    for(i=0; i<=n-2; i++)
     {
-        m=(low+high)/2;  //mid of the array is obtained
-        if (key==arr[m])
-            return m;
-        else if (key<arr[m])
-            high=m-1;       //search the left sub list
-        else
-            low=m+1;        //search the right sub list
+       for(j=0; j<=n-2-i; j++)
+        {
+            if(arr[j]>arr[j+1])
+            {
+                temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+        }
     }
-    return -1;   //if element not present in list
 }
+void binsearch(int arr[])
+{
+    printf("\nEnter the element to be searched:");
+    scanf("%d",&key);
+    bubble_sort(arr,n);
+    for(i=0;i<n;i++)
+        printf("%d\t", arr[i]);
+    beg = 0, end = n-1;
+    while(beg<=end)
+    {
+        mid = (beg + end)/2;
+        if (arr[mid] == key)
+        {
+            printf("\n%d is present in the array at position %d", key, mid+1);
+            flag ==1;
+            break;
+        }
+        else if (arr[mid]>key)
+            end = mid-1;
+        else
+            beg = mid+1;
+    }
+    if (beg > end && flag == 0)
+        printf("\n%d does not exist in the array", key);
+}
+/*
+OUTPUT:
+1)Create an array
+2)Linear Search
+3)Binary Search(Non-Recursive)
+4)Exit
+Enter your choice:1
+Enter the number of elements in the array : 10
+Enter the elements: 5 25 9 96 26 35 18 28 65 14
+Enter your choice:2
+Linear Search
+Enter the element to be searched:65
+The element is present at location 9
+Time taken to Linear Search to execute in seconds : 1.496000
+Enter your choice:3
+Binary Search
+Enter the element to be searched:96
+5       9       14      18      25      26      28      35      65      96
+96 is present in the array at position 10
+Time taken to Merge sort to execute in seconds : 0.925000
+Enter your choice:4
+*/

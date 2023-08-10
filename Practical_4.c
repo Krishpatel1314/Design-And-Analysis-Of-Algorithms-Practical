@@ -56,18 +56,18 @@ void heapsort(int arr[],int n)
             j=-1;
         else
             j=1;
-    if (i>2 && arr[2]>arr[1])
-        j=2;
-    while (j>=0 && temp<arr[j])
-    {
-        arr[k]=arr[j];
-        k=j;
-        j=2*k+1;
-        if (j+1<=i-1 && arr[j]<arr[j+1])
-            j++;
-        if (j>i-1)
-            j=-1;
-    }
+        if (i>2 && arr[2]>arr[1])
+            j=2;
+        while (j>=0 && temp<arr[j])
+        {
+            arr[k]=arr[j];
+            k=j;
+            j=2*k+1;
+            if (j+1<=i-1 && arr[j]<arr[j+1])
+                j++;
+            if (j>i-1)
+                j=-1;
+        }
         arr[k]=temp;
     }
 }
@@ -81,9 +81,10 @@ void display(int arr[],int n)
 
 /*
 OUTPUT:
-How many elements you want to enter:7
-Enter the elements: 14 12 9 8 7 10 18
-The elements are:14     12      9       8       7       10      18
-Heapified:18    12      14      8       7       9       10
-Elements sorted by heap sort:7  8       9       10      12      14      18
+How many elements you want to enter:10
+Enter the elements: 5 25 9 96 26 35 18 28 65 14
+The elements are:5      25      9       96      26      35      18      28      65     14
+Heapified:96    65      35      28      25      9       18      5       26      14
+
+Elements sorted by heap sort:5   9       14      18      25      26      28      35     65   96
 */

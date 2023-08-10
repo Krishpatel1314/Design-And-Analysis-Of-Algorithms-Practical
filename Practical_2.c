@@ -4,6 +4,7 @@ Merge sort and Quick sort.
 */
 #include <stdio.h>
 #include <conio.h>
+#include <time.h>
 #define size 50
 void merge(int arr[],int,int,int);
 void merge_sort(int arr[],int, int);
@@ -11,6 +12,7 @@ int partition(int arr[],int , int);
 void quick_sort(int arr[], int, int);
 int main()
 {
+    clock_t start, end;
     int i,j,arr[size],n,temp,ch;
     printf("\n1)Create an array");
     printf("\n2)Merge Sorting");
@@ -27,25 +29,27 @@ int main()
                 scanf("%d", &n);
                 printf("\nEnter the elements: ");
                 for(i=0;i<n;i++)
-                {
                     scanf("%d", &arr [i]);
-                }
                 break;
             case 2:
+                start = clock();
                 printf("Merge Sort:");
                 merge_sort(arr,0,n-1);
-                for(i=0;i<n;i++)
-                {   
+                for(i=0;i<n;i++) 
                     printf("%d\t", arr[i]);
-                }
+                end = clock();
+                double duration1 = ((double)end - start)/CLOCKS_PER_SEC;
+                printf("\nTime taken to Merge sort to execute in seconds : %f", duration1);
                 break;
             case 3:
+                start = clock();
                 printf("Quick Sort:");
                 quick_sort(arr,0,n-1);
                 for(i=0;i<n;i++)
-                {   
                     printf("%d\t", arr[i]);
-                }
+                end = clock();
+                double duration2 = ((double)end - start)/CLOCKS_PER_SEC;
+                printf("\nTime taken to Quick sort to execute in seconds : %f", duration2);
                 break;
             case 4:
                 return 0;
@@ -157,13 +161,21 @@ OUTPUT:
 4)Exit
 Enter your choice:1
 
-Enter the number of elements in the array : 5
+Enter the number of elements in the array : 10
 
-Enter the elements: 7 4 9 3 6
+Enter the elements: 5 25 9 96 26 35 18 28 65 14
 
 Enter your choice:2
-Merge Sort:3    4       6       7       9
+Merge Sort:5    9       14      18      25      26      28      35      65      96
+Time taken to Merge sort to execute in seconds : 0.005000
+Enter your choice:1
+
+Enter the number of elements in the array : 12
+
+Enter the elements: 9 26 35 45 96 85 74 25 14 63 25 5
+
 Enter your choice:3
-Quick Sort:3    4       6       7       9
+Quick Sort:5    9       14      25      25      26      35      45      63      74      85      96
+Time taken to Quick sort to execute in seconds : 0.006000
 Enter your choice:4
 */
