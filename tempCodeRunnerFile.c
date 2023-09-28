@@ -1,1 +1,0 @@
-kruskal’s algorithm for MST using Greedy Method
