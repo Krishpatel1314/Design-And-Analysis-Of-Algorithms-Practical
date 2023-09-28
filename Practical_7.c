@@ -1,6 +1,5 @@
 /*
-Implementation of matrix chain multiplication using dynamic 
-programming.
+Implementation of matrix chain multiplication using dynamic programming.
 */
 #include<stdio.h>
 #include<conio.h>
@@ -57,12 +56,14 @@ void dispaly_matrix_order(int s[20][20],int i,int j)
 
 /*
 OUTPUT:
-Enter the no of matrix:4
+Enter the no of matrix:6
+Enter the dimension of matrix:30
+Enter the dimension of matrix:35
+Enter the dimension of matrix:15
 Enter the dimension of matrix:5
-Enter the dimension of matrix:4
-Enter the dimension of matrix:6
-Enter the dimension of matrix:2
-Enter the dimension of matrix:7
-The Optimal Cost: 158
-The Optimal Order:      ((A1(A2A3))A4)
+Enter the dimension of matrix:10
+Enter the dimension of matrix:20
+Enter the dimension of matrix:25
+The Optimal Cost: 15125
+The Optimal Order:      ((A1(A2A3))((A4A5)A6))
 */

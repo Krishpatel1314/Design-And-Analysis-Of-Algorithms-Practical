@@ -74,18 +74,16 @@ void print(char b[10][10],char x[],int i, int j)
 
 /*
 OUTPUT:
-Enter 1st Sequence:abbacdcba
-Enter 2st Sequence:bcdbbcaac
+Enter 1st Sequence:ABCBDAB
+Enter 2st Sequence:BDCABA
 Table is...
-  0  0  0  0  0  0  0  0  0  0
-  0  0  0  0  0  0  0  1  1  1
-  0  1  1  1  1  1  1  1  1  1
-  0  1  1  1  2  2  2  2  2  2
-  0  1  1  1  2  2  2  3  3  3
-  0  1  2  2  2  2  3  3  3  4
-  0  1  2  3  3  3  3  3  3  4
-  0  1  2  3  3  3  4  4  4  4
-  0  1  2  3  4  4  4  4  4  4
-  0  1  2  3  4  4  4  5  5  5
-The Longest Common Subsequence is:bcdca
+  0  0  0  0  0  0  0
+  0  0  0  0  1  1  1
+  0  1  1  1  1  2  2
+  0  1  1  2  2  2  2
+  0  1  1  2  2  3  3
+  0  1  2  2  2  3  3
+  0  1  2  2  3  3  4
+  0  1  2  2  3  4  4
+The Longest Common Subsequence is:BCBA
 */

@@ -47,5 +47,7 @@ long r_factorial(int n)
 OUTPUT:
 Enter a number:5
 Iterative Factorial of 5 is 120
+Time taken to Iterative Factorial to execute in seconds : 0.005000
 Recursive Factorial of 5 is 120
+Time taken to Recursive Factorial to execute in seconds : 0.002000
 */

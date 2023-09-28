@@ -82,26 +82,24 @@ void knapsack(int n,float m,float w[],float p[])
 /*
 OUTPUT:
 Enter no. of objects:7
-Enter weights:2 3 5 7 1 4 1
-Enter profits:10 5 15 7 6 18 3
+Enter weights:1 3 5 4 1 3 2
+Enter profits:5 10 15 7 8 9 4
 Enter knapsack size:15
 The items are arranged as...   
 Items   Weights         Profits
-[0]     1               6      
-[1]     2               10     
-[2]     4               18     
-[3]     5               15     
-[4]     1               3
-[5]     3               5
-[6]     7               7
+[0]     1               8      
+[1]     1               5
+[3]     5               15
+[4]     3               9
+[5]     2               4
+[6]     4               7
 The solution vector is:
 0       1.00
 1       1.00
 2       1.00
-3       1.00
 4       1.00
-5       0.67
+5       1.00
 6       0.00
-Maximum Profit is:55.33
+Maximum Profit is:51.00
 Maximum weight is:15.00
 */

@@ -5,14 +5,15 @@ Implementation of a knapsack problem using dynamic programming.
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
-int table[5][6];
+#define SIZE 15
+int table[SIZE][SIZE];
 void DKP(int n,int W,int w[],int v[]);
 
 int main()
 {
-    int w[]={0,2,3,4,5};
-    int v[]={0,3,4,5,6};
-    int W=5,n=4,i;
+    int w[]={0,2,3,5,7,1,4,1};
+    int v[]={0,10,5,15,7,6,18,3};
+    int W=12,n=7,i;
     printf("\n\t\t 0/1 Knapsack Problem usind Dynamic Programming");
     printf("\nGiven Data:");
     printf("\n w[i]  v[i]");
@@ -36,7 +37,7 @@ int max(int a,int b)
     else 
         return b;
 }
-void DKP(int n,int W,int w[5],int v[5])
+void DKP(int n,int W,int w[SIZE],int v[SIZE])
 {
     void find_item(int,int,int[]);
     int i,j,val1,val2;
@@ -71,7 +72,7 @@ void DKP(int n,int W,int w[5],int v[5])
     }
     find_item(n,W,w);
 }
-void find_item(int i,int k,int w[5])
+void find_item(int i,int k,int w[SIZE])
 {
     printf("\nSolution for the Knapsack...");
     while (i>0&&k>0)
@@ -94,19 +95,26 @@ OUTPUT:
 Given Data:
  w[i]  v[i]
 --------------------
-  2     3
-  3     4
-  4     5
-  5     6
-                Capacity=5
+  2     10
+  3     5
+  5     15
+  7     7
+  1     6
+  4     18
+  1     3
+                Capacity=12
  Table Constructed using dynamic programming is...
- 0 0 0 0 0 0
- 0 0 3 3 3 3
- 0 0 3 4 4 7
- 0 0 3 4 5 7
- 0 0 3 4 5 7
+ 0 0  0  0  0  0  0  0  0  0  0  0  0
+ 0 0 10 10 10 10 10 10 10 10 10 10 10
+ 0 0 10 10 10 15 15 15 15 15 15 15 15
+ 0 0 10 10 10 15 15 25 25 25 30 30 30
+ 0 0 10 10 10 15 15 25 25 25 30 30 30
+ 0 6 10 16 16 16 21 25 31 31 31 36 36
+ 0 6 10 16 18 24 28 34 34 34 39 43 49
+ 0 6 10 16 19 24 28 34 37 37 39 43 49
 
 Solution for the Knapsack...
-Item 2 is selected
+Item 6 is selected
+Item 5 is selected
 Item 1 is selected
 */
