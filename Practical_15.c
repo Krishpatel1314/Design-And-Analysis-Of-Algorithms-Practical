@@ -1,10 +1,7 @@
 // Rabin-Karp algorithm in C
-
 #include <stdio.h>
 #include <string.h>
-
 #define d 10
-
 void rabinKarp(char pattern[], char text[], int q) {
   int m = strlen(pattern);
   int n = strlen(text);
